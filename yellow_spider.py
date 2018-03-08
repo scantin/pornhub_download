@@ -28,8 +28,11 @@ def main():
     print(num_list)
     threads = []
     for num in num_list:
-        thread = threading.Thread(target=downloadvideo,args=(num,))
-        threads.append(thread)
+        try:
+            thread = threading.Thread(target=downloadvideo,args=(num,))
+            threads.append(thread)
+        except:
+            continue
     for t in threads:
         t.setDaemon(True)    
         t.start()

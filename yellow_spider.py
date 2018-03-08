@@ -34,8 +34,10 @@ def main():
         except:
             continue
     for t in threads:
-        t.setDaemon(True)    
-        t.start()
+        try:    
+            t.start()
+        except:
+            continue
     t.join()   
 
 if __name__ == "__main__":

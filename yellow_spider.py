@@ -38,7 +38,11 @@ def main():
             t.start()
         except:
             continue
-    t.join()   
+    for t in threads:
+        try:    
+            t.join()
+        except:
+            continue
 
 if __name__ == "__main__":
     main()
